@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            background: #f0f3ef;
+            height: 100%;
+        }
+
+        .form {
+            position: absolute;
+            width: 900px;
+            margin-top: 0%;
+            margin-left: 35%;
+
+        }
+
+        .search-input-text {
+            border: 1px solid #b6b6b6;
+            width: 495px;
+            background: #fff;
+            height: 33px;
+            line-height: 33px;
+            font-size: 18px;
+            padding: 3px 0 0 7px;
+        }
+
+        .search-input-button {
+            width: 90px;
+            height: 38px;
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 3px;
+            background: #3385ff;
+            border: .5px solid #2d78f4;
+            margin-left: -5px;
+            vertical-align: top;
+            opacity: .9;
+        }
+
+        .search-input-button:hover {
+            opacity: 1;
+            box-shadow: 0 1px 1px #333;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}"/> 
+    <script type="text/javascript" th:src="@{js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div>
+    <form action="/search">
+        <div class="form">
+            <a href="http://www.baidu.com/"><img src="https://gss0.bdstatic.com/70cFsjip0QIZ8tyhnq/img/logo-80px.gif"
+                                                 alt="Baidu" align="bottom" border="0"></a>
+            <tr>
+                <td>
+                    <input id="search" name="keywords" type="text" size=50 class="search-input-text"/>
+                    <input value="搜索" type="submit" class="search-input-button">
+                </td>
+            </tr>
+        </div>
+    </form>
+    </div>
+</div>
+<!--<div class="panel panel-primary">-->
+    <!--<div class="panel-heading">-->
+        <!--<h3 class="panel-title">京东商品展示</h3>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="container">-->
+    <!--<div class="col-md-12">-->
+        <!--<div class="panel panel-primary">-->
+            <div >
+                   <h3 class="panel-title">商品信息列表</h3>
+                 
+            </div>
+            <div class="panel-body">
+                <div class="table table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <th class="text-center">商品图片</th>
+                        <th class="text-center">商品名称</th>
+                        <th class="text-center">商品价格</th>
+                        <th class="text-center">店铺</th>
+                        </thead>
+                        <tbody class="text-center">
+                        <tr th:each="goods : ${goodsList}">
+                            <td><img src="img/1.jpg" th:src="${goods.img}" height="60"/></td>
+                            <td th:text="${goods.title}"></td>
+                            <td th:text="${goods.price}"></td>
+                            <td th:text="${goods.shop}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
