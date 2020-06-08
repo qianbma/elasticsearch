@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.mqb.pojo.Content;
 import com.mqb.service.ContentService;
 import com.mqb.utils.HtmlPaseUtil;
+import com.mqb.utils.MyEsTemplate;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.index.IndexRequest;
@@ -51,7 +52,7 @@ public class ContentServiceImpl implements ContentService {
      * @throws Exception
      */
     public List<Map<String, Object>> searchPages(String keywords, int pageNo, int pageSize) throws Exception {
-        SearchRequest request = new SearchRequest("jd_goods");
+        SearchRequest request = new SearchRequest();
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder().from(pageNo).size(pageSize);
         searchSourceBuilder.query(QueryBuilders.matchQuery("title", keywords));
 //        searchSourceBuilder.query(QueryBuilders.termQuery("title.keyword",keywords));
@@ -66,6 +67,7 @@ public class ContentServiceImpl implements ContentService {
                 System.out.println("等待一会...再取数据");
                 searchResponse = client.search(request.source(searchSourceBuilder), RequestOptions.DEFAULT);
             }
+            System.out.println("取到数据");
         }
         List<Map<String, Object>> lists = new ArrayList<>();
         for (SearchHit searchHit : searchResponse.getHits().getHits()) {
