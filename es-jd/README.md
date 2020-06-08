@@ -367,9 +367,11 @@ public class ContentServiceImpl implements ContentService {
 > http://localhost:9090
 
 打开网页如下：
+[](./img/1.png)
 
 输入框搜索关键字java:
 结果如下
+[](./img/2.png)
 
 
 
