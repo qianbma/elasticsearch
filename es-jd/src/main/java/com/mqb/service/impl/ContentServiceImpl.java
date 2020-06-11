@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.mqb.pojo.Content;
 import com.mqb.service.ContentService;
 import com.mqb.utils.HtmlPaseUtil;
-import com.mqb.utils.MyEsTemplate;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.index.IndexRequest;
