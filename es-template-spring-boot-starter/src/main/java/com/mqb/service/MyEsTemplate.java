@@ -1,4 +1,4 @@
-package com.mqb.utils;
+package com.mqb.service;
 
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
@@ -9,11 +9,13 @@ import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 
-@Resource
+@Configuration
 public class MyEsTemplate implements ApplicationRunner {
+
 
     @Resource
     private RestHighLevelClient client;
@@ -38,12 +40,7 @@ public class MyEsTemplate implements ApplicationRunner {
         return response.isAcknowledged();
     }
 
-    /**
-     * 初始化"jd_joods"
-     *
-     * @param args
-     * @throws Exception
-     */
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         if (!isExistIndex(INDEX)) {
