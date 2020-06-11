@@ -40,8 +40,6 @@ public class MyEsTemplate implements ApplicationRunner {
         return response.isAcknowledged();
     }
 
-
-    @Override
     public void run(ApplicationArguments args) throws Exception {
         if (!isExistIndex(INDEX)) {
             createIndex(INDEX);
